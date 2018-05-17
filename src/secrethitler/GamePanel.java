@@ -15,6 +15,8 @@ import javax.swing.JOptionPane;
  */
 public class GamePanel extends javax.swing.JPanel {
 
+    private String party;
+    private String role;
     /**
      * Creates new form GamePanel
      */
@@ -42,6 +44,52 @@ public class GamePanel extends javax.swing.JPanel {
         fas2help.setLocation(263, 243);
         fas3help.setLocation(321, 243);
         fas4help.setLocation(379, 243);
+        fas1help.setOpaque(false);
+        fas2help.setOpaque(false);
+        fas3help.setOpaque(false);
+        fas4help.setOpaque(false);
+        fas1help.setContentAreaFilled(false);
+        fas1help.setFocusPainted(false);
+        fas1help.setBorderPainted(false);
+        fas1help.setText("");
+
+        fas2help.setContentAreaFilled(false);
+        fas2help.setFocusPainted(false);
+        fas2help.setBorderPainted(false);
+        fas2help.setText("");
+
+        fas3help.setContentAreaFilled(false);
+        fas3help.setFocusPainted(false);
+        fas3help.setBorderPainted(false);
+        fas3help.setText("");
+
+        fas4help.setContentAreaFilled(false);
+        fas4help.setFocusPainted(false);
+        fas4help.setBorderPainted(false);
+        fas4help.setText("");
+        //labelDraw.setLocation();
+        //labelDiscard.setLocation();
+        roleLabel.setIcon(new ImageIcon(new ImageIcon("fas1.png").getImage().getScaledInstance(99, 139, Image.SCALE_SMOOTH)));
+        partyLabel.setIcon(new ImageIcon(new ImageIcon("fasmembership.png").getImage().getScaledInstance(61, 92, Image.SCALE_SMOOTH)));
+        roleLabel.setLocation(10, 10);
+        partyLabel.setLocation(114, 10);
+        roleLabel.setSize(99, 139);
+        partyLabel.setSize(61, 92);
+        //
+        //
+        //
+        player1.setIcon(new ImageIcon(new ImageIcon("mysmem.png").getImage().getScaledInstance(61, 92, Image.SCALE_SMOOTH)));
+        player2.setIcon(new ImageIcon(new ImageIcon("mysmem.png").getImage().getScaledInstance(61, 92, Image.SCALE_SMOOTH)));
+        player3.setIcon(new ImageIcon(new ImageIcon("mysmem.png").getImage().getScaledInstance(61, 92, Image.SCALE_SMOOTH)));
+        player4.setIcon(new ImageIcon(new ImageIcon("mysmem.png").getImage().getScaledInstance(61, 92, Image.SCALE_SMOOTH)));
+        player1.setSize(61, 92);
+        player2.setSize(61, 92);
+        player3.setSize(61, 92);
+        player4.setSize(61, 92);
+        player1.setLocation(200, 10);
+        player2.setLocation(266, 10);
+        player3.setLocation(332, 10);
+        player4.setLocation(398, 10);
     }
 
     /**
@@ -61,6 +109,14 @@ public class GamePanel extends javax.swing.JPanel {
         fas2help = new javax.swing.JButton();
         fas3help = new javax.swing.JButton();
         fas4help = new javax.swing.JButton();
+        labelDraw = new javax.swing.JLabel();
+        labelDiscard = new javax.swing.JLabel();
+        partyLabel = new javax.swing.JLabel();
+        roleLabel = new javax.swing.JLabel();
+        player1 = new javax.swing.JLabel();
+        player2 = new javax.swing.JLabel();
+        player3 = new javax.swing.JLabel();
+        player4 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setMaximumSize(new java.awt.Dimension(640, 480));
@@ -77,7 +133,6 @@ public class GamePanel extends javax.swing.JPanel {
         discardPile.setText("jLabel1");
 
         fas1help.setText("jButton1");
-        fas1help.setOpaque(false);
         fas1help.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fas1helpActionPerformed(evt);
@@ -108,10 +163,51 @@ public class GamePanel extends javax.swing.JPanel {
             }
         });
 
+        labelDraw.setText("jLabel1");
+
+        labelDiscard.setText("jLabel2");
+
+        partyLabel.setText("jLabel1");
+
+        roleLabel.setText("jLabel1");
+
+        player1.setText("jLabel1");
+
+        player2.setText("jLabel1");
+
+        player3.setText("jLabel1");
+
+        player4.setText("jLabel1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(discardPile)
+                .addGap(249, 249, 249))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(254, 254, 254)
+                .addComponent(fas1help)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 170, Short.MAX_VALUE)
+                .addComponent(fas4help)
+                .addGap(70, 70, 70))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(145, 145, 145)
+                .addComponent(roleLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(fas3help)
+                .addGap(141, 141, 141))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(player1)
+                        .addGap(60, 60, 60))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(player3)
+                        .addGap(110, 110, 110))))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -123,42 +219,61 @@ public class GamePanel extends javax.swing.JPanel {
                         .addGap(204, 204, 204)
                         .addComponent(drawPile)
                         .addGap(144, 144, 144)
-                        .addComponent(fas2help)))
+                        .addComponent(fas2help))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(65, 65, 65)
+                        .addComponent(labelDraw))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addComponent(labelDiscard))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(238, 238, 238)
+                        .addComponent(partyLabel))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(269, 269, 269)
+                        .addComponent(player2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(172, 172, 172)
+                        .addComponent(player4)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(discardPile)
-                        .addGap(249, 249, 249))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(fas3help)
-                        .addGap(141, 141, 141))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(254, 254, 254)
-                .addComponent(fas1help)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 170, Short.MAX_VALUE)
-                .addComponent(fas4help)
-                .addGap(70, 70, 70))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(fasBoard)
-                .addGap(56, 56, 56)
+                .addGap(14, 14, 14)
+                .addComponent(player4)
+                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(fas1help)
                     .addComponent(fas4help))
-                .addGap(103, 103, 103)
+                .addGap(32, 32, 32)
+                .addComponent(labelDraw)
+                .addGap(12, 12, 12)
+                .addComponent(player2)
+                .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(drawPile)
                     .addComponent(fas2help))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
-                .addComponent(fas3help)
-                .addGap(43, 43, 43)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addComponent(player1)
+                .addGap(8, 8, 8)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(fas3help)
+                        .addGap(11, 11, 11))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(roleLabel)
+                        .addGap(33, 33, 33)))
+                .addComponent(labelDiscard)
+                .addGap(18, 18, 18)
                 .addComponent(discardPile)
-                .addGap(77, 77, 77)
+                .addGap(33, 33, 33)
+                .addComponent(player3)
+                .addGap(7, 7, 7)
+                .addComponent(partyLabel)
+                .addGap(9, 9, 9)
                 .addComponent(libBoard)
                 .addContainerGap())
         );
@@ -180,6 +295,15 @@ public class GamePanel extends javax.swing.JPanel {
         JOptionPane.showConfirmDialog(this, "The President must kill a player", "Help", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
     }//GEN-LAST:event_fas3helpActionPerformed
 
+    public void setRole(String r) {
+        role = r;
+        roleLabel.setIcon(new ImageIcon(new ImageIcon(r + ".png").getImage().getScaledInstance(85, 111, Image.SCALE_SMOOTH)));
+    }
+    
+    public void setParty(String p) {
+        party = p;
+        partyLabel.setIcon(new ImageIcon(new ImageIcon(p + ".png").getImage().getScaledInstance(85, 111, Image.SCALE_SMOOTH)));
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel discardPile;
@@ -189,6 +313,14 @@ public class GamePanel extends javax.swing.JPanel {
     private javax.swing.JButton fas3help;
     private javax.swing.JButton fas4help;
     private javax.swing.JLabel fasBoard;
+    private javax.swing.JLabel labelDiscard;
+    private javax.swing.JLabel labelDraw;
     private javax.swing.JLabel libBoard;
+    private javax.swing.JLabel partyLabel;
+    private javax.swing.JLabel player1;
+    private javax.swing.JLabel player2;
+    private javax.swing.JLabel player3;
+    private javax.swing.JLabel player4;
+    private javax.swing.JLabel roleLabel;
     // End of variables declaration//GEN-END:variables
 }
