@@ -20,7 +20,7 @@ import java.util.logging.Logger;
  */
 public class ChatBox extends javax.swing.JFrame {
 
-    Socket server;
+    static Socket server;
     OutputStream outToServer;
     DataOutputStream out;
     InputStream inFromServer;
@@ -100,7 +100,6 @@ public class ChatBox extends javax.swing.JFrame {
     private void button_SendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_SendActionPerformed
         try {
             out.writeUTF(text_Send.getText());
-            area_Chat.append(text_Send.getText() + "\n");
             text_Send.setText("");
         } catch (IOException ex) {
             Logger.getLogger(ChatBox.class.getName()).log(Level.SEVERE, null, ex);
@@ -143,6 +142,15 @@ public class ChatBox extends javax.swing.JFrame {
                     Logger.getLogger(ChatBox.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
+            }
+        });
+        Runtime.getRuntime().addShutdownHook(new Thread() {
+            public void run() {
+                try {
+                    server.close();
+                } catch (IOException ex) {
+                    Logger.getLogger(ChatBox.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
