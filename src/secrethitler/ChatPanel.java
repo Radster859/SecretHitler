@@ -115,7 +115,18 @@ public class ChatPanel extends javax.swing.JPanel {
         public void run() {
             while (1 == 1) {
                 try {
-                    area_Chat.append(in.readUTF() + "\n");
+                    String input = in.readUTF();
+                    if (input.contains("disRole: ")) {
+                        if (input.contains("F")) {
+                            area_Chat.append("You see you are fascist this game\n");
+                        } else if (input.contains("L")) {
+                            area_Chat.append("You see you are liberal this game\n");
+                        } else if (input.contains("H")) {
+                            area_Chat.append("You see you are Hitler this game\n");
+                        }
+                    } else {
+                        area_Chat.append(in.readUTF() + "\n");
+                    }
                 } catch (IOException ex) {
                     Logger.getLogger(ChatPanel.class.getName()).log(Level.SEVERE, null, ex);
                 }

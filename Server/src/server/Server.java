@@ -101,20 +101,23 @@ public class Server extends Thread {
             role.add(0);
             role.add(0);
             role.add(0);
+            for (int i = 0; i < 5; i++) {
+                outputs.get(i).writeUTF("disRole: " + players.get(i));
+            }
             while (!gameOver) {
                 if (!role.contains(2)) {
                     outputs.get(role.indexOf(1)).writeUTF("president");
-                    while (inputs.get(role.indexOf(1)).available() == 0) {}
+                    //while (inputs.get(role.indexOf(1)).available() == 0) {}
                     role.set(Integer.parseInt(inputs.get(role.indexOf(1)).readUTF()), 2);
-                    while (inputs.get(0).available() == 0 && inputs.get(1).available() == 0 && inputs.get(2).available() == 0 && inputs.get(3).available() == 0 && inputs.get(4).available() == 0){}
+                    //while (inputs.get(0).available() == 0 && inputs.get(1).available() == 0 && inputs.get(2).available() == 0 && inputs.get(3).available() == 0 && inputs.get(4).available() == 0){}
                     int jas = 0;
                     int neins = 0;
                     for (int i = 0; i < 5; i++) {
-                        if(inputs.get(i).readUTF() == "ja") {
+                        /*if(inputs.get(i).readUTF() == "ja") {
                             jas++;
                         } else if (inputs.get(i).readUTF() == "nein") {
                             neins++;
-                        }
+                        }*/
                     }
                     if (jas>neins) {
                         
