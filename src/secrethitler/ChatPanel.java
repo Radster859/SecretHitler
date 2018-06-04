@@ -92,11 +92,12 @@ public class ChatPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void button_SendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_SendActionPerformed
+        
         try {
             out.writeUTF(text_Send.getText());
             text_Send.setText("");
         } catch (IOException ex) {
-            Logger.getLogger(ChatBox.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ChatPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_button_SendActionPerformed
 
@@ -116,7 +117,7 @@ public class ChatPanel extends javax.swing.JPanel {
                 try {
                     area_Chat.append(in.readUTF() + "\n");
                 } catch (IOException ex) {
-                    Logger.getLogger(ChatBox.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(ChatPanel.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         }
