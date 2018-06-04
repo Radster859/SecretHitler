@@ -24,8 +24,7 @@ public class Server extends Thread {
     public static ArrayList<DataInputStream> inputs = new ArrayList<>();
     public static ArrayList<DataOutputStream> outputs = new ArrayList<>();
 
-    /**
-     * @param args aommatlrghcsteneinumend   
+    /**   
      */
     public Server(int port) throws IOException {
         sock = new ServerSocket(port);
@@ -63,7 +62,8 @@ public class Server extends Thread {
     }
 
     public static void main(String[] args) throws IOException {
-        int port = 62420;
+        //int port = 62420;
+        int port = 59696;
         try {
             Thread t = new Server(port);
             t.start();
